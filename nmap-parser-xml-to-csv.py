@@ -90,6 +90,7 @@ def NmapXmlParser(filenames, options):
             	# hostnames = [hostname.getAttribute('name') for hostname in hosttag.getElementsByTagName('hostname')]
             	hostnames = [hostname.getAttribute('name') for hostname in hosttag.getElementsByTagName('hostname')  if hostname.getAttribute('type') == 'user']
             	row.append('|'.join(hostnames))
+		row.append(port.getAttribute('protocol'))
 		row.append(port.getAttribute('portid'))
 		for state in port.getElementsByTagName('state'):
 			row.append(state.getAttribute('state'))
